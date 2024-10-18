@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>JSPBook</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <!-- 오류가 나면 오류 타입에 맞춰 오류 처리 jsp로 매핑 -->
+  <!-- 404 : page not found. URL에 해당되는 jsp가 없음 -->
+  <!-- 
+  [주요 오류 코드 종류]
+  200 : 요청이 정상적으로 처리됨
+  307 : 임시로 페이지가 리다이렉트 됨
+  400 : 클라이언트의 요청이 잘못된 구문으로 구성됨
+  401 : 접근이 허용되지 않음
+  404* : 지정된 URL을 처리하기 위한 자원이 존재하지 않음
+  405 : 요청된 메소드가 허용되지 않음
+  500* : 서버 내부 오류(JSP에서 예외 발생)(ex)0으로 나눔, 배열의 크기를 벗어남)
+  503 : 서버 과부하나 보수 중인 경우. 서버가 일시적으로 서비시를 제공할 수 없음
+   -->
+  <error-page>
+  	<!-- 오류 코드 설정 
+  	오류 코드 : 웹 서버가 제공하는 기본 오류 페이지에 나타나는 404, 500과 같이
+  	사용자의 요청이 올바르지 않을 때 출력되는 코드. 응답 상태 코드.
+  	
+  	JSP페이지에서 발생하는 오류가 web.xml 파일에 설정된 오류 코드와 일치하는
+  	경우 오류 코드와 오류 페이지를 보여줌
+  	-->
+  	<error-code>404</error-code>
+  	<!-- 오류 페이지 설정 -->
+  	<location>/error/error404.jsp</location>
+  </error-page>
+  <!-- 프로그래밍 오류 -->
+  <error-page>
+  	<!-- 오류 코드 설정. ex) 10/0과 같이 잘못된 코드를 실행 시 발생 -->
+  	<error-code>500</error-code>
+  	<!-- 크롬에서 처리하지 않고 error500.jsp에서 대신 처리해 줌 -->
+  	<location>/error/error500.jsp</location>
+  </error-page>
+  <!-- exception 타입별 오류 페이지 지정 -->
+  <error-page>
+  	<!-- 자바 예외 유형의 정규화된 클래스 이름을 설정하는 데 사용 -->
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/error/errorNullPointer.jsp</location>
+  </error-page>
+</web-app>
+
+
+
+
+
+
+
