@@ -34,7 +34,10 @@
 		1 num
 	
 	2. 
-         forEach 태그? 배열(String[], int[][]), Collection(List, Set) 또는 
+         forEach 태그? 배열(String[], int[][]), 
+         	콜!		리셋!
+         Collection(List, Set) 또는
+         맵다 	하..		하..		쏘~	맵다
          Map(HashTable, HashMap, SortedMap)에 저장되어 있는 값들을 
          순차적으로 처리할 때 사용함. 자바의 for, do~while을 대신해서 사용함
          var : 변수
@@ -44,8 +47,15 @@
             - count : 실행 회수(1부터 시작. 보통 행번호 출력)
           -->
           <hr />
-          <c:forEach var="i" begin="1" end="${num}"><!-- 1에서 12까지 반복 -->
-          	<p>${i}</p>
+          <p>${num}단</p>
+          <c:forEach var="i" begin="1" end="9"><!-- 1에서 9까지 반복 -->
+          	<!-- 
+          		3 x 1 = 3 
+          		3 x 2 = 6
+          		3 x 3 = 9
+          		...
+          	-->
+          	<p>${num} X ${i} = ${num * i}</p>
           </c:forEach>
 </body>
 </html>
